@@ -32,26 +32,176 @@ const headings = [
 
 const navPills = ['Overview', 'Modules', 'Resources', 'Community']
 
+const fontTabs = [
+  { id: 'sans', label: 'Sans', className: 'font-sans', description: 'Inter — core UI body copy.' },
+  { id: 'heading', label: 'Heading', className: 'font-heading', description: 'Space Grotesk — hero & titles.' },
+  { id: 'mono', label: 'Mono', className: 'font-mono', description: 'JetBrains Mono — code snippets.' },
+]
+
+const toastItems = [
+  {
+    id: 'info',
+    title: 'Course reminder',
+    message: 'Analytics 101 drops a new lesson tomorrow at 9am.',
+    icon: 'ℹ️',
+    className: 'toast-info',
+  },
+  {
+    id: 'success',
+    title: 'Module published',
+    message: '“Building dashboards” is now live for all learners.',
+    icon: '✅',
+    className: 'toast-success',
+  },
+  {
+    id: 'warning',
+    title: 'Action required',
+    message: 'Upload captions for Lesson 3 to stay compliant.',
+    icon: '⚠️',
+    className: 'toast-warning',
+  },
+  {
+    id: 'danger',
+    title: 'Payment failed',
+    message: 'Learner subscription for DevOps cohort could not be renewed.',
+    icon: '⛔',
+    className: 'toast-danger',
+  },
+]
+
+const paletteGroups = [
+  {
+    title: 'Primary palette',
+    colors: [
+      { label: 'primary-50', className: 'bg-primary-50' },
+      { label: 'primary-100', className: 'bg-primary-100' },
+      { label: 'primary-200', className: 'bg-primary-200' },
+      { label: 'primary-300', className: 'bg-primary-300' },
+      { label: 'primary-400', className: 'bg-primary-400' },
+    ],
+  },
+  {
+    title: 'Secondary palette',
+    colors: [
+      { label: 'secondary-50', className: 'bg-secondary-50' },
+      { label: 'secondary-100', className: 'bg-secondary-100' },
+      { label: 'secondary-200', className: 'bg-secondary-200' },
+      { label: 'secondary-300', className: 'bg-secondary-300' },
+      { label: 'secondary-400', className: 'bg-secondary-400' },
+    ],
+  },
+  {
+    title: 'Tertiary palette',
+    colors: [
+      { label: 'tertiary-50', className: 'bg-tertiary-50' },
+      { label: 'tertiary-100', className: 'bg-tertiary-100' },
+      { label: 'tertiary-200', className: 'bg-tertiary-200' },
+      { label: 'tertiary-300', className: 'bg-tertiary-300' },
+      { label: 'tertiary-400', className: 'bg-tertiary-400' },
+    ],
+  },
+  {
+    title: 'Surfaces',
+    colors: [
+      { label: 'surface-base', className: 'bg-surface-base' },
+      { label: 'surface-elevated', className: 'bg-surface-elevated' },
+      { label: 'surface-overlay', className: 'bg-surface-overlay' },
+    ],
+  },
+  {
+    title: 'Text & borders',
+    colors: [
+      { label: 'text-primary', className: 'bg-text-primary' },
+      { label: 'text-secondary', className: 'bg-text-secondary' },
+      { label: 'text-tertiary', className: 'bg-text-tertiary' },
+      { label: 'text-disabled', className: 'bg-text-disabled' },
+      { label: 'border-default', className: 'bg-border-default' },
+      { label: 'border-strong', className: 'bg-border-strong' },
+    ],
+  },
+]
+
 function ComponentsDemo() {
   const [openItem, setOpenItem] = useState(accordionItems[0].id)
+  const [activeFontTab, setActiveFontTab] = useState(fontTabs[0].id)
+  const activeFont = fontTabs.find((tab) => tab.id === activeFontTab)
 
   return (
     <div className="space-y-8">
       <section className="card">
         <div className="card-header">
+          <span className="caption text-text-tertiary">Color system</span>
+          <h2 className="heading-sm">Palette pills (light & dark)</h2>
+        </div>
+        <div className="card-body space-y-5">
+          {paletteGroups.map((group) => (
+            <div key={group.title} className="space-y-2">
+              <p className="caption uppercase tracking-wide text-text-secondary">{group.title}</p>
+              <div className="color-palette-row">
+                {group.colors.map((color) => (
+                  <div key={color.label} className="color-palette-item">
+                    <span className={`color-pill ${color.className}`} />
+                    <span className="color-pill-label">{color.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="card">
+        <div className="card-header">
+          <span className="caption text-text-tertiary">Feedback</span>
+          <h2 className="heading-sm">Toast notifications</h2>
+        </div>
+        <div className="card-body space-y-4">
+          {toastItems.map((toast) => (
+            <div key={toast.id} className={`toast ${toast.className}`}>
+              <span className="toast-icon" aria-hidden="true">
+                {toast.icon}
+              </span>
+              <div className="toast-body">
+                <p className="toast-title">{toast.title}</p>
+                <p className="toast-message">{toast.message}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="card">
+        <div className="card-header">
           <span className="caption text-text-tertiary">Typography</span>
           <h2 className="heading-sm">Headings & body styles</h2>
         </div>
-        <div className="card-body space-y-4">
-          {headings.map(({ tag: Tag, className, text }) => (
-            <Tag key={text} className={className}>
-              {text}
-            </Tag>
-          ))}
-          <p className="body">
-            Body text inherits `body` styles. Use `body-sm` for helper copy and `caption` for metadata or label text across
-            the eLearning UI.
-          </p>
+        <div className="card-body space-y-5">
+          <div className="tabs">
+            {fontTabs.map((tab) => (
+              <button
+                key={tab.id}
+                type="button"
+                className={`tab ${activeFontTab === tab.id ? 'tab-active' : ''}`}
+                onClick={() => setActiveFontTab(tab.id)}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+          <p className="body-sm text-text-secondary">{activeFont.description}</p>
+          <div className="space-y-3">
+            {headings.map(({ tag: Tag, className, text }) => (
+              <Tag key={text} className={`${className} ${activeFont.className}`}>
+                {text}
+              </Tag>
+            ))}
+            <p className={`body ${activeFont.className}`}>
+              Body text inherits `body` styles. Use `body-sm` for helper copy and `caption` for metadata or label text
+              across the eLearning UI.
+            </p>
+            <p className={`body-sm ${activeFont.className}`}>Body small demonstrates helper copy.</p>
+            <p className={`caption ${activeFont.className}`}>Caption scale for metadata text.</p>
+          </div>
         </div>
       </section>
 

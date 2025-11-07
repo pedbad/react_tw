@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -273,6 +275,56 @@
   .pill-nav-item-active {
     @apply bg-primary text-white shadow-sm;
   }
+
+  .tabs {
+    @apply flex border-b border-border-subtle;
+  }
+  .tab {
+    @apply relative -mb-px inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-text-secondary transition-base hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-200 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base;
+  }
+  .tab-active {
+    @apply text-primary after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-primary;
+  }
+
+  .toast {
+    @apply flex items-start gap-4 rounded-2xl border px-4 py-4 shadow-sm transition-base;
+  }
+  .toast-icon {
+    @apply flex h-11 w-11 items-center justify-center rounded-2xl text-lg text-white;
+  }
+  .toast-body {
+    @apply flex-1 space-y-1;
+  }
+  .toast-title {
+    @apply font-semibold text-text-primary;
+  }
+  .toast-message {
+    @apply body-sm;
+  }
+  .toast-info {
+    @apply border-primary/30 bg-primary/10;
+  }
+  .toast-info .toast-icon {
+    @apply bg-primary;
+  }
+  .toast-success {
+    @apply border-emerald-200 bg-emerald-50 text-emerald-900 dark:border-emerald-400/60 dark:bg-emerald-400/10 dark:text-emerald-100;
+  }
+  .toast-success .toast-icon {
+    @apply bg-emerald-500;
+  }
+  .toast-warning {
+    @apply border-amber-200 bg-amber-50 text-amber-900 dark:border-amber-400/60 dark:bg-amber-400/10 dark:text-amber-100;
+  }
+  .toast-warning .toast-icon {
+    @apply bg-amber-400;
+  }
+  .toast-danger {
+    @apply border-rose-200 bg-rose-50 text-rose-900 dark:border-rose-400/60 dark:bg-rose-400/10 dark:text-rose-50;
+  }
+  .toast-danger .toast-icon {
+    @apply bg-rose-500;
+  }
 }
 
 @layer utilities {
@@ -284,5 +336,18 @@
   }
   .transition-motion {
     @apply transition-transform duration-200 ease-out;
+  }
+
+  .color-palette-row {
+    @apply flex flex-wrap items-center gap-6;
+  }
+  .color-palette-item {
+    @apply flex items-center gap-3;
+  }
+  .color-pill {
+    @apply h-11 w-11 rounded-full border border-border-subtle shadow-inner;
+  }
+  .color-pill-label {
+    @apply font-mono text-sm text-text-secondary;
   }
 }
