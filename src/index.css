@@ -1,3 +1,240 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --font-sans: 'Inter';
+    --font-heading: 'Space Grotesk';
+    --font-mono: 'JetBrains Mono';
+
+    --color-primary-50: 239 246 255;
+    --color-primary-100: 219 234 254;
+    --color-primary-200: 191 219 254;
+    --color-primary-300: 147 197 253;
+    --color-primary-400: 96 165 250;
+
+    --color-secondary-50: 249 250 251;
+    --color-secondary-100: 243 244 246;
+    --color-secondary-200: 229 231 235;
+    --color-secondary-300: 209 213 219;
+    --color-secondary-400: 156 163 175;
+
+    --color-tertiary-50: 245 243 255;
+    --color-tertiary-100: 237 233 254;
+    --color-tertiary-200: 221 214 254;
+    --color-tertiary-300: 196 181 253;
+    --color-tertiary-400: 167 139 250;
+
+    --color-surface-base: 255 255 255;
+    --color-surface-elevated: 249 250 251;
+    --color-surface-overlay: 15 23 42;
+
+    --color-text-primary: 15 23 42;
+    --color-text-secondary: 71 85 105;
+    --color-text-tertiary: 100 116 139;
+    --color-text-disabled: 148 163 184;
+
+    --color-border-subtle: 226 232 240;
+    --color-border-default: 203 213 225;
+    --color-border-strong: 148 163 184;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --color-primary-50: 15 118 220;
+    --color-primary-100: 14 165 233;
+    --color-primary-200: 59 130 246;
+    --color-primary-300: 96 165 250;
+    --color-primary-400: 147 197 253;
+
+    --color-secondary-50: 15 23 42;
+    --color-secondary-100: 30 41 59;
+    --color-secondary-200: 51 65 85;
+    --color-secondary-300: 71 85 105;
+    --color-secondary-400: 148 163 184;
+
+    --color-tertiary-50: 49 46 129;
+    --color-tertiary-100: 79 70 229;
+    --color-tertiary-200: 124 58 237;
+    --color-tertiary-300: 167 139 250;
+    --color-tertiary-400: 196 181 253;
+
+    --color-surface-base: 15 23 42;
+    --color-surface-elevated: 30 41 59;
+    --color-surface-overlay: 8 47 73;
+
+    --color-text-primary: 226 232 240;
+    --color-text-secondary: 203 213 225;
+    --color-text-tertiary: 148 163 184;
+    --color-text-disabled: 100 116 139;
+
+    --color-border-subtle: 51 65 85;
+    --color-border-default: 71 85 105;
+    --color-border-strong: 148 163 184;
+  }
+
+  body {
+    @apply bg-surface-base text-text-primary font-sans antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-wide text-text-primary transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+    @apply focus-visible:ring-primary-200 dark:focus-visible:ring-primary-300 focus-visible:ring-offset-surface-base;
+  }
+
+  .btn-xs {
+    @apply h-8 px-3 text-xs;
+  }
+  .btn-sm {
+    @apply h-9 px-4 text-sm;
+  }
+  .btn-md {
+    @apply h-11 px-5 text-sm;
+  }
+  .btn-lg {
+    @apply h-12 px-6 text-base;
+  }
+  .btn-xl {
+    @apply h-14 px-8 text-base;
+  }
+
+  .btn-primary-solid {
+    @apply bg-primary text-white shadow-sm hover:bg-primary-300 dark:hover:bg-primary-200;
+  }
+  .btn-primary-outline {
+    @apply border border-primary text-primary hover:bg-primary/10;
+  }
+  .btn-primary-ghost {
+    @apply text-primary hover:bg-primary/10;
+  }
+
+  .btn-secondary-solid {
+    @apply bg-secondary-300 text-secondary-50 shadow-sm hover:bg-secondary-400;
+  }
+  .btn-secondary-outline {
+    @apply border border-secondary-300 text-secondary-300 hover:bg-secondary-50/60 dark:hover:bg-secondary-50/10;
+  }
+  .btn-secondary-ghost {
+    @apply text-secondary-300 hover:bg-secondary-50/70 dark:hover:bg-secondary-50/10;
+  }
+
+  .btn-tertiary-solid {
+    @apply bg-tertiary-300 text-surface-base shadow-sm hover:bg-tertiary-400;
+  }
+  .btn-tertiary-outline {
+    @apply border border-tertiary-300 text-tertiary-300 hover:bg-tertiary-50/70 dark:hover:bg-tertiary-50/10;
+  }
+  .btn-tertiary-ghost {
+    @apply text-tertiary-300 hover:bg-tertiary-50/70 dark:hover:bg-tertiary-50/10;
+  }
+
+  .heading-xl {
+    @apply font-heading text-5xl font-semibold leading-tight text-text-primary;
+  }
+  .heading-lg {
+    @apply font-heading text-4xl font-semibold leading-tight text-text-primary;
+  }
+  .heading-md {
+    @apply font-heading text-3xl font-semibold leading-snug text-text-primary;
+  }
+  .heading-sm {
+    @apply font-heading text-2xl font-semibold leading-snug text-text-primary;
+  }
+  .heading-xs {
+    @apply font-heading text-xl font-semibold leading-snug text-text-primary;
+  }
+  .body-lg {
+    @apply text-lg leading-relaxed text-text-secondary;
+  }
+  .body {
+    @apply text-base leading-relaxed text-text-secondary;
+  }
+  .body-sm {
+    @apply text-sm leading-relaxed text-text-tertiary;
+  }
+  .caption {
+    @apply text-xs font-medium uppercase tracking-wide text-text-tertiary;
+  }
+
+  .list {
+    @apply divide-y divide-border-subtle overflow-hidden rounded-2xl border border-border-subtle bg-surface-base;
+  }
+  .list-item {
+    @apply flex items-start gap-4 px-5 py-4 text-text-primary transition-colors hover:bg-surface-elevated/60;
+  }
+  .list-item-icon {
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary;
+  }
+  .list-ordered {
+    @apply list-decimal space-y-2 pl-6 text-text-secondary;
+  }
+  .list-unordered {
+    @apply list-disc space-y-2 pl-6 text-text-secondary;
+  }
+  .list-ordered-item,
+  .list-unordered-item {
+    @apply pl-1 leading-relaxed text-text-secondary;
+  }
+
+  .card {
+    @apply rounded-3xl border border-border-subtle bg-surface-base text-text-primary;
+  }
+  .card-elevated {
+    @apply shadow-2xl shadow-primary/10 bg-surface-elevated border-transparent;
+  }
+  .card-header {
+    @apply flex flex-col gap-1 border-b border-border-subtle px-6 py-5;
+  }
+  .card-body {
+    @apply px-6 py-5 text-text-secondary;
+  }
+  .card-footer {
+    @apply flex items-center justify-between gap-4 border-t border-border-subtle px-6 py-4;
+  }
+
+  .input {
+    @apply w-full rounded-2xl border border-border-default bg-surface-base px-4 py-2 text-text-primary placeholder:text-text-tertiary/80 transition-colors duration-200 ease-out focus-visible:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-200 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .input-sm {
+    @apply h-10 text-sm;
+  }
+  .input-lg {
+    @apply h-14 text-lg;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide;
+  }
+  .badge-primary {
+    @apply bg-primary/15 text-primary;
+  }
+  .badge-secondary {
+    @apply bg-secondary-50 text-secondary-400 dark:bg-secondary-100/10 dark:text-secondary-200;
+  }
+  .badge-tertiary {
+    @apply bg-tertiary-50 text-tertiary-300 dark:bg-tertiary-50/10;
+  }
+
+  .link {
+    @apply font-semibold text-primary transition-colors duration-200 hover:text-primary-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-200 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base;
+  }
+  .link-secondary {
+    @apply font-medium text-text-secondary underline-offset-4 hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-200 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base;
+  }
+}
+
+@layer utilities {
+  .transition-base {
+    @apply transition-all duration-200 ease-out;
+  }
+  .transition-color {
+    @apply transition-colors duration-200 ease-out;
+  }
+  .transition-transform {
+    @apply transition-transform duration-200 ease-out;
+  }
+}

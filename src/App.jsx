@@ -1,80 +1,184 @@
+import { useEffect, useState } from 'react'
+import './index.css'
+
 const steps = [
-  {
-    id: 1,
-    title: 'Scaffold the project',
-    command: 'npm create vite@latest react-tw -- --template react',
-  },
-  {
-    id: 2,
-    title: 'Install dependencies',
-    command: 'cd react-tw && npm install',
-  },
-  {
-    id: 3,
-    title: 'Add Tailwind CSS',
-    command: 'npm install -D tailwindcss postcss autoprefixer',
-  },
-  {
-    id: 4,
-    title: 'Generate configs',
-    command: 'npx tailwindcss init -p',
-  },
-  {
-    id: 5,
-    title: 'Start building',
-    command: 'npm run dev',
-  },
+  { id: 1, title: 'Define product goals', status: 'Ready' },
+  { id: 2, title: 'Connect data sources', status: 'In Review' },
+  { id: 3, title: 'Ship beta cohort', status: 'Blocked' },
+]
+
+const buttonShowcase = [
+  { label: 'Primary', classes: 'btn btn-md btn-primary-solid' },
+  { label: 'Secondary', classes: 'btn btn-md btn-secondary-outline' },
+  { label: 'Tertiary', classes: 'btn btn-md btn-tertiary-ghost' },
+  { label: 'Disabled', classes: 'btn btn-md btn-primary-solid disabled:opacity-60', disabled: true },
 ]
 
 function App() {
+  const [isDark, setIsDark] = useState(false)
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDark)
+  }, [isDark])
+
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
-      <div className="mx-auto flex w-full max-w-4xl flex-col gap-8 px-4 py-16">
-        <header className="space-y-4 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.35rem] text-emerald-300">
-            React + Tailwind
+    <main className="min-h-screen bg-surface-base px-4 py-12 transition-color">
+      <div className="mx-auto flex max-w-6xl flex-col gap-10">
+        <header className="space-y-5 text-center">
+          <div className="flex items-center justify-center gap-2">
+            <span className="badge badge-primary">Design system</span>
+            <span className="badge badge-tertiary">Preview</span>
+          </div>
+          <h1 className="heading-lg">Reusable foundations for React + Tailwind</h1>
+          <p className="body-lg max-w-3xl mx-auto">
+            Tokens, components, and utilities are wired together with CSS variables so light and dark
+            modes stay in sync. Mix classes such as <code className="font-mono text-sm">card</code>,
+            <code className="font-mono text-sm">btn-primary-solid</code>, and
+            <code className="font-mono text-sm">heading-md</code> to compose polished experiences in
+            minutes.
           </p>
-          <h1 className="text-3xl font-semibold text-white md:text-4xl">
-            Build a simple UI fast with utility classes
-          </h1>
-          <p className="text-base text-slate-300 md:text-lg">
-            Follow the tiny checklist below to spin up a working React + Tailwind playground in
-            minutes. Each step mirrors the setup documented in the repository README.
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <button
+              type="button"
+              className="btn btn-sm btn-primary-outline"
+              onClick={() => setIsDark((value) => !value)}
+            >
+              Toggle {isDark ? 'Light' : 'Dark'} mode
+            </button>
+            <a className="link" href="https://tailwindcss.com/docs" target="_blank" rel="noreferrer">
+              Explore Tailwind docs
+            </a>
+            <a className="link-secondary" href="https://react.dev" target="_blank" rel="noreferrer">
+              React best practices
+            </a>
+          </div>
         </header>
 
-        <section className="space-y-4 rounded-2xl border border-white/10 bg-slate-900/60 p-6 shadow-2xl shadow-black/40 backdrop-blur">
-          {steps.map((step) => (
-            <article
-              key={step.id}
-              className="flex flex-col gap-1 rounded-xl border border-white/5 bg-slate-900/40 p-4 transition hover:border-emerald-300/50"
-            >
-              <div className="flex items-center justify-between gap-4">
-                <span className="text-sm font-semibold uppercase tracking-wide text-slate-400">
-                  Step {step.id}
-                </span>
-                <span className="text-sm font-medium text-emerald-300">{step.title}</span>
-              </div>
-              <code className="mt-2 rounded-lg bg-black/40 px-3 py-2 font-mono text-sm text-emerald-100">
-                {step.command}
-              </code>
-            </article>
-          ))}
-        </section>
+        <div className="grid gap-8 lg:grid-cols-[1.3fr,0.7fr]">
+          <article className="card card-elevated">
+            <div className="card-header">
+              <span className="caption text-text-tertiary">Project kickoff</span>
+              <h2 className="heading-md">Marketing site redesign</h2>
+              <p className="body">
+                Buttons, inputs, typography, and list treatments below all rely on the design-system
+                classes you can reuse throughout the product.
+              </p>
+            </div>
 
-        <footer className="flex flex-col items-center gap-3 text-center">
-          <p className="text-sm text-slate-400">
-            Once Tailwind is wired up, start the dev server and drop components wherever you like.
-          </p>
-          <a
-            href="https://tailwindcss.com/docs"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center rounded-full bg-emerald-400 px-5 py-2 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-400/30 transition hover:bg-emerald-300"
-          >
-            Browse Tailwind docs
-          </a>
-        </footer>
+            <div className="card-body space-y-6">
+              <div className="list">
+                {steps.map((step) => (
+                  <div key={step.id} className="list-item">
+                    <span className="list-item-icon font-mono text-sm">{step.id.toString().padStart(2, '0')}</span>
+                    <div className="flex-1">
+                      <p className="body font-semibold text-text-primary">{step.title}</p>
+                      <p className="body-sm">Status: {step.status}</p>
+                    </div>
+                    <span
+                      className={`badge ${
+                        step.status === 'Ready'
+                          ? 'badge-primary'
+                          : step.status === 'In Review'
+                            ? 'badge-secondary'
+                            : 'badge-tertiary'
+                      }`}
+                    >
+                      {step.status}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <form className="space-y-4">
+                <div>
+                  <label htmlFor="project-name" className="body-sm text-text-secondary">
+                    Project name
+                  </label>
+                  <input id="project-name" placeholder="Peak launch campaign" className="input input-lg" />
+                </div>
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div>
+                    <label htmlFor="owner" className="body-sm text-text-secondary">
+                      Owner
+                    </label>
+                    <input id="owner" placeholder="Add teammate" className="input input-sm" />
+                  </div>
+                  <div>
+                    <label htmlFor="budget" className="body-sm text-text-secondary">
+                      Budget
+                    </label>
+                    <input id="budget" placeholder="$25,000" className="input input-sm" />
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div className="card-footer">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="badge badge-secondary">Draft</span>
+                <span className="badge badge-tertiary">Marketing</span>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <button type="button" className="btn btn-sm btn-secondary-ghost">
+                  Discard
+                </button>
+                <button type="button" className="btn btn-sm btn-primary-solid">
+                  Publish
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <aside className="space-y-6">
+            <div className="card">
+              <div className="card-header">
+                <span className="caption text-text-tertiary">Buttons</span>
+                <h3 className="heading-sm">Variants & sizes</h3>
+              </div>
+              <div className="card-body space-y-4">
+                <div className="flex flex-wrap gap-3">
+                  <button className="btn btn-xs btn-primary-solid">XS Solid</button>
+                  <button className="btn btn-sm btn-primary-outline">SM Outline</button>
+                  <button className="btn btn-md btn-primary-ghost">MD Ghost</button>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <button className="btn btn-lg btn-secondary-solid">LG Secondary</button>
+                  <button className="btn btn-xl btn-tertiary-outline">XL Tertiary</button>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {buttonShowcase.map((button) => (
+                    <button key={button.label} className={button.classes} disabled={button.disabled}>
+                      {button.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="card">
+              <div className="card-header">
+                <span className="caption text-text-tertiary">Typography</span>
+                <h3 className="heading-sm">Scale tokens</h3>
+              </div>
+              <div className="card-body space-y-3">
+                <p className="heading-xs">heading-xs · Brand voice</p>
+                <p className="body">body · Use this class for paragraphs and product copy.</p>
+                <p className="body-sm">body-sm · Secondary text and helper copy.</p>
+                <p className="caption">caption · Labels, pill text, or subtle metadata.</p>
+                <div className="flex flex-col gap-2 rounded-2xl bg-surface-elevated p-4">
+                  <ol className="list-ordered">
+                    <li className="list-ordered-item">List styles inherit typography tokens.</li>
+                    <li className="list-ordered-item">Use unordered variants when needed.</li>
+                  </ol>
+                  <ul className="list-unordered">
+                    <li className="list-unordered-item">Tokens keep spacing consistent.</li>
+                    <li className="list-unordered-item">Apply utilities for layout needs.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
       </div>
     </main>
   )

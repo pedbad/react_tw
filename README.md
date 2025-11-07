@@ -1,7 +1,15 @@
 # React + Tailwind Baby Steps
 
-Tiny React 18 + Vite 4 starter that is intentionally simple and fully styled with Tailwind CSS.  
-The notes below capture every command I ran so you can reproduce the setup locally or on a fresh machine.
+Tiny React 18 + Vite 4 starter that now doubles as a reusable Tailwind CSS design system.  
+Tokens, components, and utilities are powered by CSS variables so light/dark theming stays in sync.
+
+## What’s Included
+
+- **Design tokens** – RGB-based palettes for primary/secondary/tertiary colors, surface layers, text, and borders (see `tailwind.config.js` + `src/index.css`).
+- **Typography scale** – heading/body classes mapped to custom font stacks (`--font-sans`, `--font-heading`, `--font-mono`).
+- **Component primitives** – buttons (5 sizes × 3 variants × 3 color families), inputs, cards, badges, lists, and link treatments wired via `@apply`.
+- **Utility helpers** – transition helpers plus sensible focus-ring defaults for accessible interactions.
+- **Example screen** – `src/App.jsx` demonstrates real usage with cards, forms, badges, and a dark-mode toggle.
 
 ## Prerequisites
 
@@ -41,15 +49,10 @@ The notes below capture every command I ran so you can reproduce the setup local
    @tailwind components;
    @tailwind utilities;
    ```
-7. **Build a simple UI with Tailwind utilities** – the sample `src/App.jsx` renders a checklist of the steps above:
+7. **Build UI with Tailwind utilities** – replace `src/App.jsx` with any component tree that uses the design system classes (the repo includes a demo dashboard view already).
    ```jsx
-   const steps = [/* ... */]
    export default function App() {
-     return (
-       <main className="min-h-screen bg-slate-950 text-slate-100">
-         {/* content omitted for brevity; see src/App.jsx */}
-       </main>
-     )
+     return <main className="min-h-screen bg-surface-base text-text-primary">...</main>
    }
    ```
 8. **Run the dev server**
@@ -73,4 +76,5 @@ The notes below capture every command I ran so you can reproduce the setup local
 
 - ✅ React 18 + Vite scaffolded.
 - ✅ Tailwind CSS wired into the build pipeline.
-- ✅ Minimal demo UI living in `src/App.jsx`.
+- ✅ Comprehensive design system tokens + components added.
+- ✅ Demo experience (`src/App.jsx`) exercises all major classes and includes dark-mode support.
