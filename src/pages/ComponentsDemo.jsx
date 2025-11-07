@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Icon } from '../icons'
 
 const accordionItems = [
   {
@@ -44,28 +45,28 @@ const toastItems = [
     id: 'info',
     title: 'Course reminder',
     message: 'Analytics 101 drops a new lesson tomorrow at 9am.',
-    icon: 'ℹ️',
+    icon: 'info',
     className: 'toast-info',
   },
   {
     id: 'success',
     title: 'Module published',
     message: '“Building dashboards” is now live for all learners.',
-    icon: '✅',
+    icon: 'check',
     className: 'toast-success',
   },
   {
     id: 'warning',
     title: 'Action required',
     message: 'Upload captions for Lesson 3 to stay compliant.',
-    icon: '⚠️',
+    icon: 'warning',
     className: 'toast-warning',
   },
   {
     id: 'danger',
     title: 'Payment failed',
     message: 'Learner subscription for DevOps cohort could not be renewed.',
-    icon: '⛔',
+    icon: 'error',
     className: 'toast-danger',
   },
 ]
@@ -153,6 +154,129 @@ function ComponentsDemo() {
 
       <section className="card">
         <div className="card-header">
+          <span className="caption text-text-tertiary">Buttons</span>
+          <h2 className="heading-sm">Icon pairings</h2>
+        </div>
+        <div className="card-body space-y-4">
+          <div className="flex flex-wrap gap-3">
+            <button className="btn btn-md btn-primary-solid">
+              <Icon name="arrowUp" className="h-5 w-5" />
+              Back to top
+            </button>
+            <button className="btn btn-md btn-secondary-outline">
+              <Icon name="book" className="h-5 w-5" />
+              View syllabus
+            </button>
+            <button className="btn btn-md btn-tertiary-solid">
+              Play lesson
+              <Icon name="play" className="h-5 w-5" />
+            </button>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <button className="btn btn-md btn-primary-outline">
+              <Icon name="check" className="h-5 w-5" />
+              Mark complete
+            </button>
+            <button className="btn btn-md btn-secondary-solid btn-square">
+              <Icon name="refresh" className="h-5 w-5" />
+              Reset quiz
+            </button>
+            <button className="btn btn-md btn-tertiary-outline btn-square">
+              <Icon name="eye" className="h-5 w-5" />
+              See answer
+            </button>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <button className="btn btn-icon btn-primary-solid" aria-label="Back to top">
+              <Icon name="arrowUp" />
+            </button>
+            <button className="btn btn-icon btn-secondary-outline" aria-label="Refresh quiz">
+              <Icon name="refresh" />
+            </button>
+            <button className="btn btn-icon btn-tertiary-solid" aria-label="Play lesson">
+              <Icon name="play" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="card audio-player">
+        <div className="card-header">
+          <span className="caption text-text-tertiary">Media</span>
+          <h2 className="heading-sm">Course audio player</h2>
+        </div>
+        <div className="card-body audio-player-body">
+          <div className="audio-player-meta">
+            <div>
+              <p className="caption">Lesson 07</p>
+              <p className="audio-player-title">Voiceover: Data storytelling</p>
+            </div>
+            <button className="btn btn-sm btn-square btn-secondary-outline" aria-label="Download">
+              <Icon name="download" className="h-4 w-4" />
+              Download
+            </button>
+          </div>
+          <div className="audio-player-controls">
+            <button className="btn btn-icon btn-secondary-outline" aria-label="Skip back">
+              <Icon name="refresh" className="h-5 w-5 rotate-180" />
+            </button>
+            <button className="btn btn-icon btn-primary-solid audio-player-play" aria-label="Play">
+              <Icon name="play" className="h-6 w-6" />
+            </button>
+            <button className="btn btn-icon btn-secondary-outline" aria-label="Skip ahead">
+              <Icon name="refresh" className="h-5 w-5" />
+            </button>
+            <div className="audio-player-timeline">
+              <span className="caption">01:14</span>
+              <div className="audio-player-track">
+                <div className="audio-player-progress" style={{ width: '45%' }}>
+                  <span className="audio-player-thumb" />
+                </div>
+              </div>
+              <span className="caption">04:32</span>
+            </div>
+          </div>
+          <div className="audio-player-actions">
+            <button className="btn btn-sm btn-square btn-primary-outline">
+              <Icon name="check" className="h-4 w-4" />
+              Mark complete
+            </button>
+            <button className="btn btn-sm btn-square btn-tertiary-outline">
+              <Icon name="eye" className="h-4 w-4" />
+              See transcript
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="card audio-player-mini">
+        <div className="audio-player-mini-body">
+          <div>
+            <p className="caption">Flash lesson</p>
+            <p className="audio-player-mini-title">Research spotlight</p>
+          </div>
+          <div className="audio-player-mini-controls">
+            <button className="btn btn-icon btn-secondary-outline btn-square-sm" aria-label="Rewind 15 seconds">
+              <Icon name="refresh" className="h-4 w-4 rotate-180" />
+            </button>
+            <button className="btn btn-icon btn-primary-solid btn-square" aria-label="Play">
+              <Icon name="play" className="h-5 w-5" />
+            </button>
+            <button className="btn btn-icon btn-secondary-outline btn-square-sm" aria-label="Skip 15 seconds">
+              <Icon name="refresh" className="h-4 w-4" />
+            </button>
+          </div>
+          <div className="audio-player-mini-timeline">
+            <div className="audio-player-mini-track">
+              <div className="audio-player-mini-progress" style={{ width: '65%' }} />
+            </div>
+            <span className="caption">02:48 / 05:10</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="card">
+        <div className="card-header">
           <span className="caption text-text-tertiary">Feedback</span>
           <h2 className="heading-sm">Toast notifications</h2>
         </div>
@@ -160,7 +284,7 @@ function ComponentsDemo() {
           {toastItems.map((toast) => (
             <div key={toast.id} className={`toast ${toast.className}`}>
               <span className="toast-icon" aria-hidden="true">
-                {toast.icon}
+                <Icon name={toast.icon} className="h-8 w-8" />
               </span>
               <div className="toast-body">
                 <p className="toast-title">{toast.title}</p>

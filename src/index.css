@@ -379,7 +379,7 @@
     @apply flex items-start gap-4 rounded-2xl border px-4 py-4 shadow-sm transition-base;
   }
   .toast-icon {
-    @apply flex h-11 w-11 items-center justify-center rounded-2xl text-lg text-white;
+    @apply flex h-14 w-14 items-center justify-center text-4xl;
   }
   .toast-body {
     @apply flex-1 space-y-1;
@@ -391,28 +391,84 @@
     @apply body-sm;
   }
   .toast-info {
-    @apply border-primary/30 bg-primary/10;
+    @apply border-primary/30 bg-primary/5;
   }
   .toast-info .toast-icon {
-    @apply bg-primary;
+    @apply text-primary;
   }
   .toast-success {
     @apply border-emerald-200 bg-emerald-50 text-emerald-900 dark:border-emerald-400/60 dark:bg-emerald-400/10 dark:text-emerald-100;
   }
   .toast-success .toast-icon {
-    @apply bg-emerald-500;
+    @apply text-emerald-500;
   }
   .toast-warning {
     @apply border-amber-200 bg-amber-50 text-amber-900 dark:border-amber-400/60 dark:bg-amber-400/10 dark:text-amber-100;
   }
   .toast-warning .toast-icon {
-    @apply bg-amber-400;
+    @apply text-amber-500;
   }
   .toast-danger {
     @apply border-rose-200 bg-rose-50 text-rose-900 dark:border-rose-400/60 dark:bg-rose-400/10 dark:text-rose-50;
   }
   .toast-danger .toast-icon {
-    @apply bg-rose-500;
+    @apply text-rose-500;
+  }
+
+  .audio-player {
+    @apply bg-surface-base/95 border border-border-subtle rounded-3xl;
+  }
+  .audio-player-body {
+    @apply flex flex-col gap-6;
+  }
+  .audio-player-meta {
+    @apply flex flex-wrap items-center justify-between gap-3;
+  }
+  .audio-player-title {
+    @apply text-lg font-semibold text-text-primary;
+  }
+  .audio-player-controls {
+    @apply flex flex-wrap items-center gap-4;
+  }
+  .audio-player-play {
+    @apply h-14 w-14 rounded-full text-white text-xl shadow-lg shadow-primary/30;
+  }
+  .audio-player-timeline {
+    @apply flex flex-1 items-center gap-3 text-text-secondary min-w-[240px];
+  }
+  .audio-player-track {
+    @apply relative h-1.5 flex-1 rounded-full bg-border-subtle;
+  }
+  .audio-player-progress {
+    @apply relative h-full rounded-full bg-primary;
+  }
+  .audio-player-thumb {
+    @apply absolute -top-1.5 right-0 h-4 w-4 rounded-full border-2 border-white bg-primary shadow;
+  }
+  .audio-player-actions {
+    @apply flex flex-wrap gap-3;
+  }
+
+  .audio-player-mini {
+    @apply border border-border-subtle bg-surface-base/95 rounded-3xl;
+  }
+  .audio-player-mini-body {
+    @apply flex flex-col gap-4 p-5;
+  }
+  .audio-player-mini-title {
+    @apply text-base font-semibold text-text-primary;
+  }
+  .audio-player-mini-controls {
+    @apply flex items-center gap-3;
+  }
+  .audio-player-mini-timeline {
+    @apply flex flex-col gap-2;
+  }
+  .audio-player-mini-track {
+    @apply h-1 rounded-full bg-border-subtle;
+  }
+  .audio-player-mini-progress {
+    @apply h-full rounded-full bg-primary;
   }
 }
 

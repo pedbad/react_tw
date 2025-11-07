@@ -1,3 +1,5 @@
+import { Icon } from '../icons'
+
 const steps = [
   { id: 1, title: 'Outline course structure', status: 'Ready' },
   { id: 2, title: 'Record instructor videos', status: 'In Review' },
@@ -128,15 +130,11 @@ function Overview() {
               </div>
               <div className="flex flex-wrap gap-3">
                 <button className="btn btn-md btn-primary-solid">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 19V5m0 0l-7 7m7-7l7 7" />
-                  </svg>
+                  <Icon name="arrowUp" className="h-5 w-5" />
                   Back to top
                 </button>
                 <button className="btn btn-icon btn-primary-outline" aria-label="Back to top">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 19V5m0 0l-7 7m7-7l7 7" />
-                  </svg>
+                  <Icon name="arrowUp" />
                 </button>
               </div>
               <div className="divider" aria-hidden="true" />
@@ -154,9 +152,7 @@ function Overview() {
                 <button className="btn btn-sm btn-secondary-outline btn-square-sm">Gray outline</button>
                 <button className="btn btn-sm btn-tertiary-outline btn-square-sm">Lavender outline</button>
                 <button className="btn btn-icon btn-primary-solid btn-square-sm" aria-label="Square icon button">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14m0 0-7-7m7 7 7-7" />
-                  </svg>
+                  <Icon name="arrowUp" />
                 </button>
               </div>
             </div>
