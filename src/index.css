@@ -186,6 +186,9 @@
   .card-elevated {
     @apply shadow-2xl shadow-primary/10 bg-surface-elevated border-transparent;
   }
+  .card-nested {
+    @apply rounded-2xl border border-dashed border-border-default bg-surface-base p-4;
+  }
   .card-header {
     @apply flex flex-col gap-1 border-b border-border-subtle px-6 py-5;
   }
@@ -225,6 +228,51 @@
   .link-secondary {
     @apply font-medium text-text-secondary underline-offset-4 hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-200 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base;
   }
+
+  .site-header {
+    @apply sticky top-0 z-50 border-b border-border-subtle bg-surface-base/95 backdrop-blur transition-base;
+  }
+  .site-header-inner {
+    @apply mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4;
+  }
+  .site-title {
+    @apply font-heading text-lg font-semibold text-text-primary;
+  }
+  .site-nav {
+    @apply flex flex-wrap items-center gap-1;
+  }
+  .nav-link {
+    @apply rounded-full px-4 py-2 text-sm font-medium text-text-secondary transition-base hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-200 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base;
+  }
+  .nav-link-active {
+    @apply bg-primary/10 text-primary;
+  }
+
+  .accordion {
+    @apply space-y-3;
+  }
+  .accordion-item {
+    @apply rounded-2xl border border-border-subtle bg-surface-base;
+  }
+  .accordion-trigger {
+    @apply flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-text-primary transition-base hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-200 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base;
+  }
+  .accordion-icon {
+    @apply inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary transition-motion;
+  }
+  .accordion-content {
+    @apply px-5 pb-5 text-text-secondary;
+  }
+
+  .pill-nav {
+    @apply flex flex-wrap items-center gap-2 rounded-full border border-border-subtle bg-surface-base px-2 py-1;
+  }
+  .pill-nav-item {
+    @apply rounded-full px-4 py-1.5 text-sm font-medium text-text-secondary transition-base hover:text-text-primary;
+  }
+  .pill-nav-item-active {
+    @apply bg-primary text-white shadow-sm;
+  }
 }
 
 @layer utilities {
@@ -234,7 +282,7 @@
   .transition-color {
     @apply transition-colors duration-200 ease-out;
   }
-  .transition-transform {
+  .transition-motion {
     @apply transition-transform duration-200 ease-out;
   }
 }

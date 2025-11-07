@@ -8,6 +8,7 @@ Tokens, components, and utilities are powered by CSS variables so light/dark the
 - **Design tokens** – RGB-based palettes for primary/secondary/tertiary colors, surface layers, text, and borders (see `tailwind.config.js` + `src/index.css`).
 - **Typography scale** – heading/body classes mapped to custom font stacks (`--font-sans`, `--font-heading`, `--font-mono`).
 - **Component primitives** – buttons (5 sizes × 3 variants × 3 color families), inputs, cards, badges, lists, and link treatments wired via `@apply`.
+- **Demo screens** – overview dashboard plus a components gallery (with headings, lists, accordions, nav patterns) accessible via the sticky top navigation.
 - **Utility helpers** – transition helpers plus sensible focus-ring defaults for accessible interactions.
 - **Example screen** – `src/App.jsx` demonstrates real usage with cards, forms, badges, and a dark-mode toggle.
 
