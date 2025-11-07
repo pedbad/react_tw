@@ -31,6 +31,7 @@ const headings = [
 ]
 
 const navPills = ['Overview', 'Modules', 'Resources', 'Community']
+const numberPills = Array.from({ length: 20 }, (_, index) => index + 1)
 
 const fontTabs = [
   { id: 'sans', label: 'Sans', className: 'font-sans', description: 'Inter — core UI body copy.' },
@@ -228,6 +229,33 @@ function ComponentsDemo() {
                 <li className="list-unordered-item">Community forum</li>
               </ul>
             </div>
+            <div className="divider" aria-hidden="true" />
+            <div>
+              <h4 className="heading-xs">Ordered list with circular numbers</h4>
+              <ol className="numbered-list">
+                {[
+                  'Outline modules',
+                  'Record lessons',
+                  'Gather feedback',
+                  'Iterate on quiz bank',
+                  'Launch the cohort',
+                ].map((item) => (
+                  <li key={item} className="numbered-list-item">
+                    {item}
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div>
+              <h4 className="heading-xs">Unordered list with hollow circles</h4>
+              <ul className="circle-list">
+                {['Syllabus planning', 'Asset reviews', 'Learner surveys'].map((item) => (
+                  <li key={item} className="circle-list-item">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -252,6 +280,14 @@ function ComponentsDemo() {
               Use the pill nav for module selectors, lesson filters, or any horizontal navigation you want to style with
               badges.
             </p>
+            <div className="divider" aria-hidden="true" />
+            <div className="flex flex-wrap gap-3">
+              {numberPills.map((value) => (
+                <button key={value} type="button" className="number-pill">
+                  {value}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </section>

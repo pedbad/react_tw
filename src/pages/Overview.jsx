@@ -126,6 +126,39 @@ function Overview() {
                   </button>
                 ))}
               </div>
+              <div className="flex flex-wrap gap-3">
+                <button className="btn btn-md btn-primary-solid">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 19V5m0 0l-7 7m7-7l7 7" />
+                  </svg>
+                  Back to top
+                </button>
+                <button className="btn btn-icon btn-primary-outline" aria-label="Back to top">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 19V5m0 0l-7 7m7-7l7 7" />
+                  </svg>
+                </button>
+              </div>
+              <div className="divider" aria-hidden="true" />
+              <div className="flex flex-wrap gap-3">
+                <button className="btn btn-md btn-primary-solid btn-square">
+                  Square primary
+                </button>
+                <button className="btn btn-md btn-secondary-solid btn-square">
+                  Square secondary
+                </button>
+                <button className="btn btn-md btn-tertiary-solid btn-square">
+                  Square tertiary
+                </button>
+                <button className="btn btn-sm btn-primary-outline btn-square-sm">Outline square</button>
+                <button className="btn btn-sm btn-secondary-outline btn-square-sm">Gray outline</button>
+                <button className="btn btn-sm btn-tertiary-outline btn-square-sm">Lavender outline</button>
+                <button className="btn btn-icon btn-primary-solid btn-square-sm" aria-label="Square icon button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14m0 0-7-7m7 7 7-7" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
 
