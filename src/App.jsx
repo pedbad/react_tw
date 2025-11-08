@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout.jsx'
 import ComponentsDemo from './pages/ComponentsDemo.jsx'
 import Overview from './pages/Overview.jsx'
+import Animations from './pages/Animations.jsx'
 import './index.css'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Overview />} />
           <Route path="/components" element={<ComponentsDemo />} />
+          <Route path="/animations" element={<Animations />} />
         </Routes>
       </Layout>
     </BrowserRouter>

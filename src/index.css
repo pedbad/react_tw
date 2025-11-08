@@ -470,6 +470,98 @@
   .audio-player-mini-progress {
     @apply h-full rounded-full bg-primary;
   }
+
+  .animations-grid {
+    @apply grid gap-6 md:grid-cols-2 xl:grid-cols-4;
+  }
+  .animation-card {
+    @apply rounded-3xl border border-border-subtle bg-transparent;
+    perspective: 1200px;
+  }
+  .animation-card-inner {
+    @apply flex h-full flex-col overflow-hidden rounded-3xl bg-surface-base shadow transition-all duration-500;
+    transform-style: preserve-3d;
+    will-change: transform, box-shadow, opacity, filter;
+  }
+  .animation-card-media {
+    @apply relative overflow-hidden;
+  }
+  .animation-card-media img {
+    @apply h-40 w-full object-cover transition-transform duration-500 group-hover:scale-105;
+  }
+  .animation-card-overlay {
+    @apply absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100;
+  }
+  .animation-card-body {
+    @apply flex flex-col gap-1 px-4 py-4;
+  }
+  .animation-card-title {
+    @apply text-lg font-semibold text-text-primary;
+  }
+  .animation-card--tilt .animation-card-inner {
+    transform-origin: center;
+  }
+  .animation-card--tilt:hover .animation-card-inner {
+    transform: rotateX(12deg) rotateY(-10deg) translateY(-0.5rem);
+  }
+  .animation-card--fade .animation-card-inner {
+    opacity: 0.65;
+    transform: scale(0.95);
+  }
+  .animation-card--fade:hover .animation-card-inner {
+    opacity: 1;
+    transform: scale(1) translateY(-0.4rem);
+  }
+  .animation-card--zoom .animation-card-inner {
+    transform: scale(1);
+  }
+  .animation-card--zoom:hover .animation-card-inner {
+    transform: scale(1.1) translateY(-0.4rem);
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
+  }
+  .animation-card--slide .animation-card-inner {
+    transform: translateY(1rem);
+  }
+  .animation-card--slide:hover .animation-card-inner {
+    transform: translateY(0);
+  }
+  .animation-card--glow .animation-card-inner {
+    transition: box-shadow 600ms ease, transform 600ms ease;
+  }
+  .animation-card--glow:hover .animation-card-inner {
+    transform: translateY(-0.6rem);
+    box-shadow: 0 45px 90px rgba(129, 140, 248, 0.6);
+  }
+  .animation-card--flip .animation-card-inner {
+    transform-origin: center;
+  }
+  .animation-card--flip:hover .animation-card-inner {
+    transform: rotateY(150deg);
+  }
+  .animation-card--blur .animation-card-inner {
+    filter: saturate(0.8);
+  }
+  .animation-card--blur:hover .animation-card-inner {
+    filter: saturate(1.3) brightness(1.1);
+    transform: scale(1.03) translateY(-0.3rem);
+  }
+  .animation-card--pulse .animation-card-inner {
+    animation: none;
+  }
+  .animation-card--pulse:hover .animation-card-inner {
+    animation: cardPulse 1.2s ease-in-out infinite alternate;
+  }
+
+@keyframes cardPulse {
+  from {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.25);
+  }
+  to {
+    transform: translateY(0.15rem);
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.15);
+  }
+}
 }
 
 @layer utilities {

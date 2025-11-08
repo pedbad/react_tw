@@ -25,6 +25,12 @@ function Layout({ children, isDark, onToggleTheme }) {
             >
               Components
             </NavLink>
+            <NavLink
+              to="/animations"
+              className={({ isActive }) => `nav-link ${isActive ? 'nav-link-active' : ''}`}
+            >
+              Animations
+            </NavLink>
           </nav>
 
           <div className="flex items-center gap-3">
