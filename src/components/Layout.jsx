@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import AxeReporter from '../a11y/AxeReporter.jsx'
 
 function Layout({ children, isDark, onToggleTheme }) {
   return (
@@ -31,6 +32,12 @@ function Layout({ children, isDark, onToggleTheme }) {
             >
               Animations
             </NavLink>
+            <NavLink
+              to="/catalyst"
+              className={({ isActive }) => `nav-link ${isActive ? 'nav-link-active' : ''}`}
+            >
+              Catalyst
+            </NavLink>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -42,6 +49,7 @@ function Layout({ children, isDark, onToggleTheme }) {
       </header>
 
       <main className="px-4 py-12">
+        {import.meta.env.DEV && <AxeReporter />}
         <div className="mx-auto flex max-w-6xl flex-col gap-10">{children}</div>
       </main>
     </div>

@@ -4,6 +4,7 @@ import Layout from './components/Layout.jsx'
 import ComponentsDemo from './pages/ComponentsDemo.jsx'
 import Overview from './pages/Overview.jsx'
 import Animations from './pages/Animations.jsx'
+import CatalystDemo from './catalyst/CatalystDemo.jsx'
 import './index.css'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Overview />} />
           <Route path="/components" element={<ComponentsDemo />} />
           <Route path="/animations" element={<Animations />} />
+          <Route path="/catalyst" element={<CatalystDemo />} />
         </Routes>
       </Layout>
     </BrowserRouter>

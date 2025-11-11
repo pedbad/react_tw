@@ -56,3 +56,12 @@ Tokens, components, and utilities are powered by CSS variables so light/dark the
 - Audio player & mini player mockups with Tailwind transitions.
 - Components gallery: typography, lists, navigation, numbered pills, accordions, card patterns, inputs.
 - Animations page showcasing tilt, fade, zoom, slide, glow, flip, blur, pulse—and additional 3D hover interactions across 20 cards.
+
+## Catalyst Showcase
+
+The project now ships with a dedicated Catalyst demo page (`/catalyst`) that highlights modular UX patterns:
+
+- Modular folder (`src/catalyst/`) containing reusable components, sections, and data mocks.
+- Hero, responsive navigation (with dropdown), accordion primer, KPI grid, signals panel, workflow builder, productivity tools, data views, micro-interactions, and various tabbed demos.
+- Embedded UX flourishes: tooltips, alerts, modal, icon playground, theme switch, palette badges, responsive dropdowns, gradient icon hovers, auto-open accordions, and back-to-top triggers.
+- Axe-based accessibility reporter (`src/a11y/AxeReporter.jsx`) that runs in development to surface contrast + WAVE-type violations across routes.

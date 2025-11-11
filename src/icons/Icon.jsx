@@ -8,6 +8,7 @@ import ErrorIcon from './ErrorIcon.jsx'
 import RefreshIcon from './RefreshIcon.jsx'
 import EyeIcon from './EyeIcon.jsx'
 import DownloadIcon from './DownloadIcon.jsx'
+import SearchIcon from './SearchIcon.jsx'
 
 const registry = {
   arrowUp: ArrowUpIcon,
@@ -20,6 +21,7 @@ const registry = {
   refresh: RefreshIcon,
   eye: EyeIcon,
   download: DownloadIcon,
+  search: SearchIcon,
 }
 
 export function Icon({ name, className = 'h-5 w-5', title, ...props }) {
