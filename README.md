@@ -2,6 +2,7 @@
 
 ![React version](https://img.shields.io/badge/React-18.3.1-61dafb?logo=react&logoColor=white)
 ![Tailwind version](https://img.shields.io/badge/Tailwind-3.4.13-38bdf8?logo=tailwind-css&logoColor=white)
+![Catalyst demo](https://img.shields.io/badge/Catalyst-demo-6366f1?logo=react&logoColor=white)
 
 Tiny React 18 + Vite 4 starter that now doubles as a reusable Tailwind CSS design system.  
 Tokens, components, and utilities are powered by CSS variables so light/dark theming stays in sync.
