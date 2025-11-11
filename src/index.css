@@ -252,6 +252,25 @@
     @apply flex items-center justify-between gap-4 border-t border-border-subtle px-6 py-4;
   }
 
+  .surface-panel {
+    @apply rounded-2xl border border-border-subtle bg-surface-base;
+  }
+  .surface-panel-tight {
+    @apply surface-panel px-4 py-3;
+  }
+  .surface-panel-padded {
+    @apply surface-panel p-4;
+  }
+  .surface-panel-elevated {
+    @apply rounded-2xl border border-border-subtle bg-surface-elevated;
+  }
+  .surface-panel-elevated-padded {
+    @apply surface-panel-elevated p-4;
+  }
+  .dropdown-panel {
+    @apply rounded-2xl border border-border-subtle bg-surface-base p-2 shadow-xl;
+  }
+
   .input {
     @apply w-full rounded-2xl border border-border-default bg-surface-base px-4 py-2 text-text-primary placeholder:text-text-tertiary/80 transition-colors duration-200 ease-out focus-visible:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-200 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base disabled:cursor-not-allowed disabled:opacity-60;
   }

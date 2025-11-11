@@ -1,6 +1,6 @@
 function DataTable({ rows = [] }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-border-subtle">
+    <div className="surface-panel overflow-hidden">
       <table className="w-full text-left text-sm">
         <thead className="bg-surface-elevated text-text-secondary">
           <tr>

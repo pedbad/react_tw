@@ -1,6 +1,6 @@
 function CalendarCard({ events = [] }) {
   return (
-    <div className="rounded-2xl border border-border-subtle bg-surface-base p-4">
+    <div className="surface-panel-padded">
       <p className="text-sm font-semibold text-text-primary">Week at a glance</p>
       <ul className="mt-4 space-y-3">
         {events.map((event) => (

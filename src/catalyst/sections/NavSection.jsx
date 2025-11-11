@@ -77,7 +77,7 @@ function NavSection() {
                     )}
                   </button>
                   {link.id === 'insights' && insightsOpen && (
-                    <div className="absolute right-0 z-10 mt-2 w-56 rounded-2xl border border-border-subtle bg-surface-base p-2 shadow-xl md:text-left">
+                    <div className="dropdown-panel absolute right-0 z-10 mt-2 w-56 md:text-left">
                       <ul className="space-y-1 text-sm text-text-secondary">
                         {insightsMenu.map((item) => (
                           <li key={item}>

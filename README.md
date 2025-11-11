@@ -66,3 +66,23 @@ The project now ships with a dedicated Catalyst demo page (`/catalyst`) that hig
 - Hero, responsive navigation (with dropdown), accordion primer, KPI grid, signals panel, workflow builder, productivity tools, data views, micro-interactions, and various tabbed demos.
 - Embedded UX flourishes: tooltips, alerts, modal, icon playground, theme switch, palette badges, responsive dropdowns, gradient icon hovers, auto-open accordions, and back-to-top triggers.
 - Axe-based accessibility reporter (`src/a11y/AxeReporter.jsx`) that runs in development to surface contrast + WAVE-type violations across routes.
+
+## Directory Guide
+
+```
+/
+├─ public/                # Static assets served by Vite (favicons, OG images, etc.)
+├─ src/
+│  ├─ a11y/               # Dev-only accessibility helpers (axe-core reporter)
+│  ├─ catalyst/           # Modular Catalyst demo (components, sections, data, hooks)
+│  ├─ components/         # Shared app chrome (layout, nav)
+│  ├─ icons/              # SVG icon registry + Icon helper
+│  ├─ pages/              # Route-level screens (Overview, Components gallery, Animations)
+│  ├─ index.css           # Tailwind layers, tokens, and component utilities
+│  ├─ main.jsx            # App bootstrap (React + Router + Tailwind)
+│  └─ App.jsx             # Router config + dark-mode state
+├─ tailwind.config.js     # Tailwind theme extensions (tokens → CSS vars)
+├─ postcss.config.js      # PostCSS + Tailwind pipeline
+├─ vite.config.js         # Vite build setup with React plugin
+└─ package.json           # Scripts and dependency manifest
+```

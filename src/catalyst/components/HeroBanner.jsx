@@ -15,7 +15,7 @@ function HeroBanner({ eyebrow, title, description, primaryAction, secondaryActio
             </button>
           </div>
         </div>
-        <div className="min-w-[240px] rounded-2xl border border-border-subtle bg-surface-base p-4 shadow-inner">
+        <div className="min-w-[240px] surface-panel-padded shadow-inner">
           <p className="body-sm text-text-secondary">{meta.label}</p>
           <p className="heading-sm">{meta.value}</p>
           <p className="body-sm text-text-secondary">{meta.helper}</p>

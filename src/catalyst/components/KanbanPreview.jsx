@@ -2,7 +2,7 @@ function KanbanPreview({ columns = [] }) {
   return (
     <div className="grid gap-3 md:grid-cols-3">
       {columns.map((column) => (
-        <div key={column.id} className="rounded-2xl border border-border-subtle bg-surface-base p-4">
+        <div key={column.id} className="surface-panel-padded">
           <p className="text-sm font-semibold text-text-primary">{column.title}</p>
           <ul className="mt-3 space-y-2 text-sm text-text-secondary">
             {column.items.map((item) => (

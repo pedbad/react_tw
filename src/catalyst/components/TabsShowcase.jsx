@@ -34,7 +34,7 @@ function TabsShowcase() {
 
   return (
     <>
-      <div className="rounded-2xl border border-border-subtle bg-surface-elevated p-4">
+      <div className="surface-panel-elevated-padded">
       <div className="tabs">
         {tabs.map((tab) => (
           <button
@@ -55,7 +55,7 @@ function TabsShowcase() {
               <div className="inline-flex">
                 <button type="button" className="btn btn-sm btn-primary-solid relative group shadow-md shadow-primary/30 text-surface-base">
                   Example tooltip
-                  <span className="pointer-events-none absolute left-1/2 top-full z-10 mt-3 hidden -translate-x-1/2 rounded-2xl border border-border-subtle bg-surface-base px-4 py-3 text-sm font-medium text-text-secondary shadow-xl group-hover:block md:w-72">
+                  <span className="pointer-events-none absolute left-1/2 top-full z-10 mt-3 hidden -translate-x-1/2 surface-panel px-4 py-3 text-sm font-medium text-text-secondary shadow-xl group-hover:block md:w-72">
                     Use Catalyst tooltips to call out success metrics or helper copy.
                   </span>
                 </button>
@@ -89,7 +89,7 @@ function TabsShowcase() {
           </div>
         )}
         {activeTab === 'build' && (
-          <div className="mt-4 flex items-center gap-4 rounded-2xl border border-border-subtle bg-surface-base p-4">
+          <div className="surface-panel-padded mt-4 flex items-center gap-4">
             <div>
               <p className="caption text-text-tertiary">Theme switch</p>
               <p className="body-sm text-text-secondary">Toggle global light/dark mode via Catalyst switch.</p>

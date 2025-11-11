@@ -78,7 +78,7 @@ function AccordionSection() {
         {accordionItems.map((item) => {
           const isOpen = openItems.includes(item.id)
           return (
-            <div key={item.id} className="rounded-2xl border border-border-subtle bg-surface-base">
+            <div key={item.id} className="surface-panel">
               <button
                 ref={item.id === lastAccordionId ? lastHeaderRef : null}
                 type="button"
@@ -137,7 +137,7 @@ function AccordionSection() {
                   )}
                   {item.id === 'patterns' && (
                     <div className="grid gap-4 md:grid-cols-2">
-                      <div className="rounded-2xl border border-border-subtle bg-surface-elevated p-4">
+                      <div className="surface-panel-elevated-padded">
                         <p className="caption text-text-tertiary">Standard ordered list</p>
                         <ol className="list-ordered mt-3">
                           <li className="list-ordered-item">Capture requirements</li>
@@ -145,7 +145,7 @@ function AccordionSection() {
                           <li className="list-ordered-item">Ship component</li>
                         </ol>
                       </div>
-                      <div className="rounded-2xl border border-border-subtle bg-surface-elevated p-4">
+                      <div className="surface-panel-elevated-padded">
                         <p className="caption text-text-tertiary">Numbered circles</p>
                         <ol className="numbered-list mt-3">
                           <li className="numbered-list-item">Brief approval</li>
@@ -153,7 +153,7 @@ function AccordionSection() {
                           <li className="numbered-list-item">Deploy</li>
                         </ol>
                       </div>
-                      <div className="rounded-2xl border border-border-subtle bg-surface-elevated p-4">
+                      <div className="surface-panel-elevated-padded">
                         <p className="caption text-text-tertiary">Standard bullet list</p>
                         <ul className="list-unordered mt-3">
                           <li className="list-unordered-item">Progress tracker</li>
@@ -161,7 +161,7 @@ function AccordionSection() {
                           <li className="list-unordered-item">Autosave states</li>
                         </ul>
                       </div>
-                      <div className="rounded-2xl border border-border-subtle bg-surface-elevated p-4">
+                      <div className="surface-panel-elevated-padded">
                         <p className="caption text-text-tertiary">Hollow bullet list</p>
                         <ul className="circle-list circle-list--vibrant mt-3">
                           <li className="circle-list-item">Outline controls</li>
