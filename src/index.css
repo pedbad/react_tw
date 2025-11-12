@@ -384,11 +384,11 @@
     @apply space-y-3;
   }
   .circle-list-item {
-    @apply relative pl-10 text-text-secondary transition-base hover:text-primary;
+    @apply flex items-start gap-3 text-text-secondary transition-base hover:text-primary;
   }
   .circle-list-item::before {
     content: '';
-    @apply absolute left-0 top-1/2 h-5 w-5 -translate-y-1/2 rounded-full border border-primary transition-base;
+    @apply mt-1 inline-flex h-5 w-5 flex-shrink-0 rounded-full border border-primary transition-base;
   }
   .circle-list-item:hover::before {
     @apply bg-primary/10 border-primary;
