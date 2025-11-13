@@ -1,0 +1,5 @@
+export { default as IntroSection } from './IntroSection.jsx'
+export { default as InteractionsSection } from './InteractionsSection.jsx'
+export { default as FormsSection } from './FormsSection.jsx'
+export { default as DataSection } from './DataSection.jsx'
+export { default as FeedbackSection } from './FeedbackSection.jsx'

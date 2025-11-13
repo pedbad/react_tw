@@ -47,6 +47,12 @@ function Layout({ children, isDark, onToggleTheme }) {
             >
               Daisy
             </NavLink>
+            <NavLink
+              to="/shadcn"
+              className={({ isActive }) => `nav-link ${isActive ? 'nav-link-active' : ''}`}
+            >
+              shadcn/ui
+            </NavLink>
           </nav>
 
           <div className="flex items-center gap-3">
