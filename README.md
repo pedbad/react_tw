@@ -67,6 +67,14 @@ The project now ships with a dedicated Catalyst demo page (`/catalyst`) that hig
 - Embedded UX flourishes: tooltips, alerts, modal, icon playground, theme switch, palette badges, responsive dropdowns, gradient icon hovers, auto-open accordions, and back-to-top triggers.
 - Axe-based accessibility reporter (`src/a11y/AxeReporter.jsx`) that runs in development to surface contrast + WAVE-type violations across routes.
 
+## DaisyUI Showcase
+
+Visit `/daisy` to see every DaisyUI component rendered with our tokens. Because DaisyUI is installed as a Tailwind plugin (`tailwind.config.js`), you only need to compose the provided classes—no custom CSS required. The page lives in `src/daisy/` and demonstrates drawers, modals, mockups, accordions, navbars, forms, and feedback components pulled straight from [daisyui.com/components](https://daisyui.com/components/).
+
+## shadcn/ui Showcase
+
+The `/shadcn` route hosts examples copied from [shadcn/ui](https://ui.shadcn.com/). Each component is just a React file with Tailwind class strings, so you own the markup/styles. The folder `src/shadcn/` mirrors shadcn’s sectioned approach (interactions, forms, data, feedback) and shows how to blend their headless components with our shared tokens and `.ds-scope` styles.
+
 ## Directory Guide
 
 ```
@@ -74,13 +82,15 @@ The project now ships with a dedicated Catalyst demo page (`/catalyst`) that hig
 ├─ public/                # Static assets served by Vite (favicons, OG images, etc.)
 ├─ src/
 │  ├─ a11y/               # Dev-only accessibility helpers (axe-core reporter)
-│  ├─ catalyst/           # Modular Catalyst demo (components, sections, data, hooks)
+│  ├─ catalyst/           # Catalyst demo (bespoke components, sections, hooks, data)
+│  ├─ daisy/              # DaisyUI showcase (sections composed from plugin classes)
+│  ├─ shadcn/             # shadcn/ui showcase (copied components + Tailwind class strings)
 │  ├─ components/         # Shared app chrome (layout, nav)
 │  ├─ icons/              # SVG icon registry + Icon helper
 │  ├─ pages/              # Route-level screens (Overview, Components gallery, Animations)
-│  ├─ index.css           # Tailwind layers, tokens, and component utilities
+│  ├─ index.css           # Tailwind layers, tokens, and component utilities (Catalyst styles under .ds-scope)
 │  ├─ main.jsx            # App bootstrap (React + Router + Tailwind)
-│  └─ App.jsx             # Router config + dark-mode state
+│  └─ App.jsx             # Router config, dark-mode state, and route wiring for Catalyst/Daisy/shadcn
 ├─ tailwind.config.js     # Tailwind theme extensions (tokens → CSS vars)
 ├─ postcss.config.js      # PostCSS + Tailwind pipeline
 ├─ vite.config.js         # Vite build setup with React plugin
