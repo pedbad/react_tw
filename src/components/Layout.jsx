@@ -1,11 +1,14 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import AxeReporter from '../a11y/AxeReporter.jsx'
 
 function Layout({ children, isDark, onToggleTheme }) {
+  const location = useLocation()
+  const isDaisyPage = location.pathname.startsWith('/daisy')
+
   return (
     <div className="min-h-screen bg-surface-base text-text-primary transition-base">
       <header className="site-header">
-        <div className="site-header-inner">
+        <div className="site-header-inner ds-scope">
           <div className="flex items-center gap-3">
             <div className="h-11 w-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center font-heading text-xl">
               eL
@@ -38,6 +41,12 @@ function Layout({ children, isDark, onToggleTheme }) {
             >
               Catalyst
             </NavLink>
+            <NavLink
+              to="/daisy"
+              className={({ isActive }) => `nav-link ${isActive ? 'nav-link-active' : ''}`}
+            >
+              Daisy
+            </NavLink>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -50,7 +59,7 @@ function Layout({ children, isDark, onToggleTheme }) {
 
       <main className="px-4 py-12">
         {import.meta.env.DEV && <AxeReporter />}
-        <div className="mx-auto flex max-w-6xl flex-col gap-10">{children}</div>
+        <div className={`mx-auto flex max-w-6xl flex-col gap-10 ${isDaisyPage ? '' : 'ds-scope'}`}>{children}</div>
       </main>
     </div>
   )
